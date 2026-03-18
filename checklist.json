@@ -1,0 +1,291 @@
+{
+  "description": "厚生労働省モデル就業規則（令和7年12月版）完全準拠。実務上の点検粒度を極限まで高めた詳細チェックリスト・マスタ",
+  "categories": {
+    "ABSOLUTE": "絶対的必要記載事項（欠落＝即座に法違反）",
+    "RELATIVE": "相対的必要記載事項（制度がある場合に記載義務。未記載は法違反）",
+    "IMPORTANT_ARBITRARY": "重要度の高い任意記載事項（法義務ではないが、懲戒の有効性やトラブル回避に実質必須）",
+    "VOLUNTARY": "任意記載事項（組織の透明性や採用競争力を高める項目）"
+  },
+  "items": [
+    {
+      "id": "A01",
+      "category": "ABSOLUTE",
+      "item_name": "始業・終業時刻の明記",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["始業", "終業", "就業開始", "就業終了", "勤務時刻", "所定労働時間"]
+    },
+    {
+      "id": "A02",
+      "category": "ABSOLUTE",
+      "item_name": "交替制（シフト制）の転換ルール",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["交替", "シフト", "転換", "番方", "組分け", "ローテーション"]
+    },
+    {
+      "id": "A03",
+      "category": "ABSOLUTE",
+      "item_name": "休憩時間（長さ・付与方法）",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["休憩", "休憩時間", "中抜き", "一斉付与"]
+    },
+    {
+      "id": "A04",
+      "category": "ABSOLUTE",
+      "item_name": "休日（特定・振替ルール）",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["休日", "土曜日", "日曜日", "祝日", "振替", "代休", "週休"]
+    },
+    {
+      "id": "A05",
+      "category": "ABSOLUTE",
+      "item_name": "年次有給休暇（付与日数・出勤率算定）",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["有給休暇", "年休", "付与", "出勤率", "有休"]
+    },
+    {
+      "id": "A06",
+      "category": "ABSOLUTE",
+      "item_name": "年次有給休暇（時季指定・計画的付与）",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["時季指定", "計画的付与", "一斉付与", "5日"]
+    },
+    {
+      "id": "A07",
+      "category": "ABSOLUTE",
+      "item_name": "産前産後・育児時間・生理休暇等",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["産前", "産後", "育児時間", "生理休暇", "母性健康"]
+    },
+    {
+      "id": "A08",
+      "category": "ABSOLUTE",
+      "item_name": "賃金の決定・計算方法（基本給・諸手当）",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["基本給", "諸手当", "計算", "算定", "職能給", "役職手当", "通勤手当"]
+    },
+    {
+      "id": "A09",
+      "category": "ABSOLUTE",
+      "item_name": "賃金の支払方法（直接・通貨・口座振込等）",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["直接払", "通貨", "口座振込", "デジタル払い", "同意"]
+    },
+    {
+      "id": "A10",
+      "category": "ABSOLUTE",
+      "item_name": "賃金の締切り・支払時期（毎月1回・一定期日）",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["締切", "締め切り", "支払日", "支給日", "月末", "翌月"]
+    },
+    {
+      "id": "A11",
+      "category": "ABSOLUTE",
+      "item_name": "昇給の時期・条件",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["昇給", "給与改定", "査定", "定期昇給"]
+    },
+    {
+      "id": "A12",
+      "category": "ABSOLUTE",
+      "item_name": "定年・自己都合退職の手続",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["定年", "自己都合", "退職願", "退職届", "承認"]
+    },
+    {
+      "id": "A13",
+      "category": "ABSOLUTE",
+      "item_name": "解雇の事由（具体的列挙）",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["解雇", "クビ", "解雇事由", "整理解雇"]
+    },
+    {
+      "id": "A14",
+      "category": "ABSOLUTE",
+      "item_name": "解雇の予告・手続（30日前予告等）",
+      "hearing_question": null,
+      "trigger_logic": "always",
+      "search_hints": ["解雇予告", "解雇予告手当", "30日前"]
+    },
+    {
+      "id": "R01",
+      "category": "RELATIVE",
+      "item_name": "退職手当（対象範囲・決定方法）",
+      "hearing_question": "貴社では退職金（退職手当・年金）の制度を設けていますか？",
+      "trigger_logic": "on_user_yes_or_unknown",
+      "search_hints": ["退職金", "退職手当", "対象範囲", "勤続年数"]
+    },
+    {
+      "id": "R02",
+      "category": "RELATIVE",
+      "item_name": "退職手当（計算式・支払時期）",
+      "hearing_question": "退職金の具体的な計算方法や支払うタイミングを定めていますか？",
+      "trigger_logic": "on_user_yes_or_unknown",
+      "search_hints": ["支給率", "係数", "支払時期", "退職金の計算"]
+    },
+    {
+      "id": "R03",
+      "category": "RELATIVE",
+      "item_name": "賞与（ボーナス）・臨時の賃金",
+      "hearing_question": "貴社では賞与（ボーナス）を支給していますか？",
+      "trigger_logic": "on_user_yes_or_unknown",
+      "search_hints": ["賞与", "ボーナス", "期末手当", "決算手当", "算定期間"]
+    },
+    {
+      "id": "R04",
+      "category": "RELATIVE",
+      "item_name": "社内独自の最低賃金額",
+      "hearing_question": "法令以外に、社内で独自の「最低賃金」のルールを定めていますか？",
+      "trigger_logic": "on_user_yes_or_unknown",
+      "search_hints": ["最低賃金", "独自設定", "賃金の下限"]
+    },
+    {
+      "id": "R05",
+      "category": "RELATIVE",
+      "item_name": "食費・作業用品等の負担（控除）",
+      "hearing_question": "給料から食費や制服代、寮費などを差し引くルールはありますか？",
+      "trigger_logic": "on_user_yes_or_unknown",
+      "search_hints": ["食費", "制服", "作業用品", "天引き", "控除", "自己負担"]
+    },
+    {
+      "id": "R06",
+      "category": "RELATIVE",
+      "item_name": "安全衛生・健康診断（受診義務等）",
+      "hearing_question": "健康診断や産業医の選任、ストレスチェックなどのルールはありますか？",
+      "trigger_logic": "on_user_yes_or_unknown",
+      "search_hints": ["健康診断", "産業医", "ストレスチェック", "安全衛生"]
+    },
+    {
+      "id": "R07",
+      "category": "RELATIVE",
+      "item_name": "職業訓練・社内研修",
+      "hearing_question": "入社研修や資格取得支援など、社員の教育に関する制度はありますか？",
+      "trigger_logic": "on_user_yes_or_unknown",
+      "search_hints": ["教育", "訓練", "研修", "講習", "資格取得"]
+    },
+    {
+      "id": "R08",
+      "category": "RELATIVE",
+      "item_name": "災害補償・業務外の傷病扶助",
+      "hearing_question": "労災の上乗せや、病気欠勤中の手当などの独自サポートはありますか？",
+      "trigger_logic": "on_user_yes_or_unknown",
+      "search_hints": ["災害補償", "傷病扶助", "見舞金", "付加給付"]
+    },
+    {
+      "id": "R09",
+      "category": "RELATIVE",
+      "item_name": "表彰の条件と種類",
+      "hearing_question": "永年勤続や優秀社員に対する「表彰」の制度はありますか？",
+      "trigger_logic": "on_user_yes_or_unknown",
+      "search_hints": ["表彰", "永年勤続", "表彰金", "褒賞"]
+    },
+    {
+      "id": "R10",
+      "category": "RELATIVE",
+      "item_name": "懲戒（制裁）の種類（減給限度等）",
+      "hearing_question": "社員がルール違反をした際の「懲戒処分（お仕置き）」を想定していますか？",
+      "trigger_logic": "on_user_yes_or_unknown",
+      "search_hints": ["懲戒", "制裁", "けん責", "減給", "出勤停止"]
+    },
+    {
+      "id": "R11",
+      "category": "RELATIVE",
+      "item_name": "懲戒（制裁）の具体的事由",
+      "hearing_question": "どのような行為をしたら懲戒になるのか、具体的に定めていますか？",
+      "trigger_logic": "on_user_yes_or_unknown",
+      "search_hints": ["懲戒事由", "禁止行為", "無断欠勤", "背信行為"]
+    },
+    {
+      "id": "I01",
+      "category": "IMPORTANT_ARBITRARY",
+      "item_name": "パワーハラスメントの禁止・対処",
+      "hearing_question": "職場でのパワハラを禁止し、処罰する規定を入れますか？",
+      "trigger_logic": "strongly_recommended",
+      "search_hints": ["パワハラ", "パワーハラスメント", "優越的な関係"]
+    },
+    {
+      "id": "I02",
+      "category": "IMPORTANT_ARBITRARY",
+      "item_name": "セクシュアルハラスメントの禁止・対処",
+      "hearing_question": "セクハラ（性的嫌がらせ）を禁止し、処罰する規定を入れますか？",
+      "trigger_logic": "strongly_recommended",
+      "search_hints": ["セクハラ", "セクシュアルハラスメント", "性的"]
+    },
+    {
+      "id": "I03",
+      "category": "IMPORTANT_ARBITRARY",
+      "item_name": "マタハラ・パタハラ等の禁止・対処",
+      "hearing_question": "育休や妊娠に対する嫌がらせを禁止する規定を入れますか？",
+      "trigger_logic": "strongly_recommended",
+      "search_hints": ["マタハラ", "パタハラ", "育児休業", "妊娠", "出産"]
+    },
+    {
+      "id": "I04",
+      "category": "IMPORTANT_ARBITRARY",
+      "item_name": "個人情報保護・秘密保持（在職中）",
+      "hearing_question": "仕事で知り得た秘密を他に漏らさないルールを定めますか？",
+      "trigger_logic": "strongly_recommended",
+      "search_hints": ["秘密保持", "機密", "漏洩", "個人情報"]
+    },
+    {
+      "id": "I05",
+      "category": "IMPORTANT_ARBITRARY",
+      "item_name": "秘密保持（退職後）及び競業避止",
+      "hearing_question": "辞めた後に情報を漏らしたり、ライバル社へ転職したりするのを防ぐルールを検討しますか？",
+      "trigger_logic": "strongly_recommended",
+      "search_hints": ["退職後", "秘密保持", "競業避止", "競合"]
+    },
+    {
+      "id": "I06",
+      "category": "IMPORTANT_ARBITRARY",
+      "item_name": "副業・兼業（許可制・届出制等）",
+      "hearing_question": "副業を認めるか、あるいは許可制にするかのルールを定めますか？",
+      "trigger_logic": "strongly_recommended",
+      "search_hints": ["副業", "兼業", "二重就業", "サイドビジネス"]
+    },
+    {
+      "id": "I07",
+      "category": "IMPORTANT_ARBITRARY",
+      "item_name": "SNSの利用・会社の名誉毀損防止",
+      "hearing_question": "ネットやSNSで会社を誹謗中傷することを防ぐルールは必要ですか？",
+      "trigger_logic": "strongly_recommended",
+      "search_hints": ["SNS", "インターネット", "名誉", "社会的信用"]
+    },
+    {
+      "id": "V01",
+      "category": "VOLUNTARY",
+      "item_name": "就業規則の目的・基本理念",
+      "hearing_question": "規則の冒頭に「なぜこの規則を作るのか」という目的を記載しますか？",
+      "trigger_logic": "optional",
+      "search_hints": ["目的", "基本理念", "総則"]
+    },
+    {
+      "id": "V02",
+      "category": "VOLUNTARY",
+      "item_name": "採用手続・提出書類の定義",
+      "hearing_question": "入社時に何を出させるか（履歴書・誓約書等）を具体的に定めますか？",
+      "trigger_logic": "optional",
+      "search_hints": ["採用手続", "提出書類", "住民票", "誓約書"]
+    },
+    {
+      "id": "V03",
+      "category": "VOLUNTARY",
+      "item_name": "試用期間（長さ・評価）",
+      "hearing_question": "最初の数ヶ月を「お試し期間」にするルールはありますか？",
+      "trigger_logic": "optional",
+      "search_hints": ["試用期間", "見習い"]
+    }
+  ]
+}

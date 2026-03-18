@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+新しいフォルダー/
+新規 テキスト ドキュメント.txt
+就業規則チェックマン 開発仕様書1..txt

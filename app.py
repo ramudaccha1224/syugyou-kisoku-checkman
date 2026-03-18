@@ -21,6 +21,29 @@ st.set_page_config(
 st.title("📋 就業規則チェックマン")
 st.caption("AIが社労士の視点で、あなたの就業規則をリーガルチェックします。")
 
+# --- テキスト折り返し CSS ---
+st.markdown("""
+<style>
+/* Markdown・コードブロック・リスト等の折り返し */
+.stMarkdown, .stMarkdown p, .stMarkdown li,
+.stMarkdown h1, .stMarkdown h2, .stMarkdown h3,
+.stCodeBlock, .stAlert, .stExpander,
+div[data-testid="stMarkdownContainer"] p,
+div[data-testid="stMarkdownContainer"] li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+}
+/* メインコンテンツ領域の幅制限 */
+section.main > div.block-container {
+    max-width: 900px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 # ========================================
 # session_state 初期化
@@ -67,11 +90,19 @@ with st.sidebar:
     )
 
     if uploaded_files:
-        try:
-            texts = extract_multiple(uploaded_files)
+        # アップロード済みファイル名のセット
+        new_names = {f.name for f in uploaded_files}
+        existing_names = set(st.session_state.get("uploaded_texts", {}).keys())
+
+        # 新しいファイルが追加された or まだ読み込んでいない場合のみ再読込
+        # （リランのたびに再読込すると、バッファ不安定で片方が消える問題を回避）
+        if new_names != existing_names:
+            try:
+                texts = extract_multiple(uploaded_files)
+            except Exception:
+                texts = {}
             if any(t.strip() for t in texts.values()):
                 st.session_state["uploaded_texts"] = texts
-                # 全テキスト結合（ファイル名ヘッダー付き）
                 combined_parts = []
                 for fname, text in texts.items():
                     if text.strip():
@@ -88,8 +119,12 @@ with st.sidebar:
                         st.warning(f"⚠ {fname}（テキスト抽出不可）")
             else:
                 st.warning("いずれのファイルからもテキストを抽出できませんでした。")
-        except Exception as e:
-            st.error(f"ファイル読み込みエラー: {e}")
+        else:
+            # 既に読込済み → 一覧だけ表示
+            for fname, text in st.session_state["uploaded_texts"].items():
+                char_count = len(text)
+                if char_count > 0:
+                    st.success(f"✅ {fname}（{char_count:,} 文字）")
 
     st.divider()
     st.markdown(

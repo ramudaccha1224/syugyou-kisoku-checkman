@@ -10,6 +10,7 @@ from hearing import get_hearing_items, build_hearing_result
 from prompt_builder import build_system_prompt
 from analyzer import run_legal_check
 from ref_detector import detect_external_references, filter_unresolved_references
+from report_exporter import build_report_markdown
 
 # --- ページ設定 ---
 st.set_page_config(
@@ -361,6 +362,29 @@ elif step == 4:
         st.markdown(result)
     else:
         st.warning("結果がありません。")
+
+    st.divider()
+
+    # --- レポートファイル出力 ---
+    if result:
+        st.subheader("📥 レポート出力")
+        st.markdown("チェック結果をGenspark向けレポート指示書としてダウンロードできます。")
+
+        report_md = build_report_markdown(
+            check_result=result,
+            uploaded_filenames=list(st.session_state.get("uploaded_texts", {}).keys()),
+            hearing_result=st.session_state.get("hearing_result"),
+            supplement_skipped=st.session_state.get("supplement_skipped", False),
+        )
+
+        st.download_button(
+            label="📄 レポート指示書をダウンロード（.md）",
+            data=report_md.encode("utf-8"),
+            file_name="就業規則チェック_レポート指示書.md",
+            mime="text/markdown",
+            use_container_width=True,
+            type="primary",
+        )
 
     st.divider()
 

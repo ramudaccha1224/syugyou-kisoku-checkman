@@ -1,15 +1,14 @@
-"""PDF/DOCX テキスト抽出"""
+"""PDF テキスト抽出"""
 
 from __future__ import annotations
 
 from io import BytesIO
 
 from PyPDF2 import PdfReader
-from docx import Document
 
 
 def extract_text(uploaded_file) -> str:
-    """アップロードされたファイルからテキストを抽出する。
+    """アップロードされたPDFファイルからテキストを抽出する。
 
     Args:
         uploaded_file: Streamlit の UploadedFile オブジェクト
@@ -22,10 +21,8 @@ def extract_text(uploaded_file) -> str:
 
     if name.endswith(".pdf"):
         return _extract_pdf(data)
-    elif name.endswith(".docx"):
-        return _extract_docx(data)
     else:
-        raise ValueError(f"未対応のファイル形式です: {name}")
+        raise ValueError(f"未対応のファイル形式です: {name}（PDFのみ対応）")
 
 
 def extract_multiple(uploaded_files: list) -> dict[str, str]:
@@ -48,9 +45,3 @@ def _extract_pdf(data: bytes) -> str:
     reader = PdfReader(BytesIO(data))
     pages = [page.extract_text() or "" for page in reader.pages]
     return "\n".join(pages)
-
-
-def _extract_docx(data: bytes) -> str:
-    doc = Document(BytesIO(data))
-    paragraphs = [p.text for p in doc.paragraphs if p.text.strip()]
-    return "\n".join(paragraphs)

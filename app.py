@@ -60,8 +60,8 @@ knowledge = load_knowledge()
 with st.sidebar:
     st.header("書類をアップロード")
     uploaded_files = st.file_uploader(
-        "PDF または Word ファイルを選択（複数可）",
-        type=["pdf", "docx"],
+        "PDF ファイルを選択（複数可）",
+        type=["pdf"],
         accept_multiple_files=True,
         help="就業規則の本体に加え、賃金規程などの別紙がある場合はまとめてアップロードしてください。",
     )
@@ -218,7 +218,7 @@ elif step == 2:
     # 追加アップロード
     supplement_files = st.file_uploader(
         "追加書類をアップロード（複数可）",
-        type=["pdf", "docx"],
+        type=["pdf"],
         accept_multiple_files=True,
         key="supplement_uploader",
     )

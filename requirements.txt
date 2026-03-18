@@ -3,4 +3,3 @@ google-genai
 python-dotenv
 pydantic
 PyPDF2
-python-docx
